@@ -1,0 +1,17 @@
+{% extends 'header.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Register - ToDoList</title>
+{% endblock title %}
+
+{% block content %}
+
+   <div class="container mt-5">
+        <form method="post">
+            {% csrf_token %}
+            {{ registrationForm | crispy }}
+            <button type="submit">Register</button>
+        </form>
+   </div>
+{% endblock %}

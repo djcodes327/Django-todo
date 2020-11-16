@@ -1,0 +1,28 @@
+{% extends 'header.html' %}
+
+{% block title %}
+    <title>Edit Task - ToDoList</title>
+{% endblock title %}
+
+
+{% block content %}
+    <br><br>
+    {% if task_obj.manager == request.user %}
+        <div class="container">
+            <form method="post">
+                {% csrf_token %}
+              <div class="form-group">
+                <input type="text" class="form-control" name="task" value="{{ task_obj.task }}">
+                <input type="hidden" value="{{ task_obj.done }}">
+              </div>
+              <button type="submit" class="btn btn-primary">Update</button>
+
+            </form>
+
+    {% else %}
+        <h1>Access Restricted</h1>
+    {% endif %}
+    </div>
+
+
+{% endblock content %}
